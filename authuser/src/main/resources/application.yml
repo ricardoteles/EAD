@@ -1,0 +1,32 @@
+server:
+  port: 8087
+
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/ead-authuser
+#    username: postgres
+#    password: banco123
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#      dialect: org.hibernate.dialect.PostgreSQLDialect
+#      jdbc:
+#        lob.non-contextual-creation: true
+#    properties:
+#      hibernate:
+#        show-sql: true
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb   # In-memory H2 database, can be changed to file-based as needed
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true             # Enable the H2 console
+      path: /h2-console         # URL path to access the console, e.g. http://localhost:8080/h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update           # Automatically create or update DB schema (optional)
+    database-platform: org.hibernate.dialect.H2Dialect
