@@ -15,4 +15,8 @@ public interface UserService {
     void delete(UserModel userModel);
 
     UserModel registerUser(UserRecordDto userRecordDto);
+
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
 }
