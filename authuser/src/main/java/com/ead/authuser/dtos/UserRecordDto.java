@@ -1,8 +1,7 @@
 package com.ead.authuser.dtos;
 
-import com.ead.validations.PasswordConstraint;
+import com.ead.authuser.validations.PasswordConstraint;
 import com.fasterxml.jackson.annotation.JsonView;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
