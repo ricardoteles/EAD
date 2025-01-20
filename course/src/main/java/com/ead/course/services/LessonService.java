@@ -1,11 +1,10 @@
 package com.ead.course.services;
 
-import com.ead.course.controllers.LessonRecordDto;
+import com.ead.course.dtos.LessonRecordDto;
 import com.ead.course.models.LessonModel;
 import com.ead.course.models.ModuleModel;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 public interface LessonService {
@@ -13,7 +12,7 @@ public interface LessonService {
 
     List<LessonModel> findAllLessonsIntoModule(UUID moduleId);
 
-    Optional<LessonModel> findLessonIntoModule(UUID moduleId, UUID lessonId);
+    LessonModel findLessonIntoModule(UUID moduleId, UUID lessonId);
 
     void delete(LessonModel lesson);
 

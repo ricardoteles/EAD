@@ -1,6 +1,7 @@
 package com.ead.course.services.impl;
 
 import com.ead.course.dtos.CourseRecordDto;
+import com.ead.course.exceptions.NotFoundException;
 import com.ead.course.models.CourseModel;
 import com.ead.course.models.LessonModel;
 import com.ead.course.models.ModuleModel;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -64,8 +64,9 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Optional<CourseModel> findById(UUID courseId) {
-        return courseRepository.findById(courseId);
+    public CourseModel findById(UUID courseId) {
+        return courseRepository.findById(courseId)
+                .orElseThrow(() ->new NotFoundException("Error: Course not found."));
     }
 
     @Override

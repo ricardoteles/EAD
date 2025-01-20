@@ -4,23 +4,24 @@ import com.ead.course.enums.CourseLevel;
 import com.ead.course.enums.CourseStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.UUID;
 
 public record CourseRecordDto (
-        @NotBlank
+        @NotBlank(message = "Name is mandatory")
         String name,
 
-        @NotBlank
+        @NotBlank(message = "Description is mandatory")
         String description,
 
-        @NotNull
+        @NotNull(message = "CourseStatus is mandatory")
         CourseStatus courseStatus,
 
-        @NotNull
+        @NotNull(message = "CourseLevel is mandatory")
         CourseLevel courseLevel,
 
-        @NotNull
+        @NotNull(message = "UserInstructor is mandatory")
         UUID userInstructor,
 
         String imageUrl){

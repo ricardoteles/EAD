@@ -23,7 +23,7 @@ public class ModuleController {
     public ResponseEntity<Object> saveModule(@PathVariable(value = "courseId") UUID courseId,
                                              @RequestBody @Valid ModuleRecordDto moduleRecordDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(moduleService.save(moduleRecordDto, courseService.findById(courseId).get()));
+                .body(moduleService.save(moduleRecordDto, courseService.findById(courseId)));
     }
 
     @GetMapping("/courses/{courseId}/modules")
@@ -40,7 +40,7 @@ public class ModuleController {
     @DeleteMapping("/courses/{courseId}/modules/{moduleId}")
     public ResponseEntity<Object> deleteModule(@PathVariable(value = "courseId") UUID courseId,
                                                @PathVariable(value = "moduleId") UUID moduleId){
-        var course = moduleService.findModuleIntoCourse(courseId, moduleId).get();
+        var course = moduleService.findModuleIntoCourse(courseId, moduleId);
         moduleService.delete(course);
         return ResponseEntity.status(HttpStatus.OK).body("Module deleted successfully.");
     }
@@ -49,7 +49,7 @@ public class ModuleController {
     public ResponseEntity<Object> updateModule(@PathVariable(value = "courseId") UUID courseId,
                                                @PathVariable(value = "moduleId") UUID moduleId,
                                                @RequestBody @Valid ModuleRecordDto moduleRecordDto) {
-        var moduleModel = moduleService.findModuleIntoCourse(courseId, moduleId).get();
+        var moduleModel = moduleService.findModuleIntoCourse(courseId, moduleId);
 
         return ResponseEntity.status(HttpStatus.OK)
                 .body(moduleService.update(moduleRecordDto, moduleModel));

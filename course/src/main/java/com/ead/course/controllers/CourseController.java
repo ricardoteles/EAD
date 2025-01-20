@@ -33,12 +33,12 @@ public class CourseController {
 
     @GetMapping("/{courseId}")
     public ResponseEntity<Object> getOneCourse(@PathVariable(value = "courseId") UUID courseId){
-        return ResponseEntity.status(HttpStatus.OK).body(courseService.findById(courseId).get());
+        return ResponseEntity.status(HttpStatus.OK).body(courseService.findById(courseId));
     }
 
     @DeleteMapping("/{courseId}")
     public ResponseEntity<Object> deleteCourse(@PathVariable(value = "courseId") UUID courseId){
-        var course = courseService.findById(courseId).get();
+        var course = courseService.findById(courseId);
         courseService.delete(course);
         return ResponseEntity.status(HttpStatus.OK).body("Course deleted successfully.");
     }
@@ -46,7 +46,7 @@ public class CourseController {
     @PutMapping("/{courseId}")
     public ResponseEntity<Object> updateCourse(@PathVariable(value = "courseId") UUID courseId,
                                                @RequestBody @Valid CourseRecordDto courseRecordDto) {
-        var courseModel = courseService.findById(courseId).get();
+        var courseModel = courseService.findById(courseId);
 
         return ResponseEntity.status(HttpStatus.OK).body(courseService.update(courseRecordDto, courseModel));
     }
