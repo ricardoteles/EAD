@@ -1,6 +1,5 @@
-package com.ead.course.controllers;
+package com.ead.course.dtos;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 
 public record LessonRecordDto(
