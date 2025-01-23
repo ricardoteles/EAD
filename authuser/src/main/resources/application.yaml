@@ -17,3 +17,13 @@ spring:
     properties:
       hibernate:
         show-sql: true
+  output:
+    ansi:
+      enabled: Always       # mostra o console com letras coloridas
+
+logging:
+  level:
+    com.ead: TRACE
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: INFO
