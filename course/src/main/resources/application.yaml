@@ -21,6 +21,11 @@ spring:
     ansi:
       enabled: Always       # mostra o console com letras coloridas
 
+ead:
+  api:
+    url:
+      authuser: 'http://localhost:8087/ead-authuser'
+
 logging:
   level:
     com.ead: TRACE

@@ -21,6 +21,11 @@ spring:
     ansi:
       enabled: Always       # mostra o console com letras coloridas
 
+ead:
+  api:
+    url:
+      course: 'http://localhost:8082/ead-course'
+
 logging:
   level:
     com.ead: TRACE
