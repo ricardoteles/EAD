@@ -2,13 +2,17 @@ package com.ead.course.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "TB_COURSES_USERS")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CourseUserModel implements Serializable {
