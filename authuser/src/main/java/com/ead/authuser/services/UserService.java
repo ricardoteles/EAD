@@ -29,4 +29,6 @@ public interface UserService {
     UserModel updateImage(UserRecordDto userRecordDto, UserModel userModel);
 
     Page<UserModel> findAll(Specification<UserModel> spec, Pageable pageable);
+
+    UserModel registerInstructor(UserModel userModel);
 }
