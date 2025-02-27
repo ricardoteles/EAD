@@ -52,8 +52,6 @@ public class CourseUserController {
 
         CourseUserModel courseUserModel = courseModel.convertToCourseUserModel(subscriptionRecordDto.userId());
 
-        // TODO: send subscription UserInCourse to AuthUser
-
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(courseUserService.saveAndSendSubscriptionUserInCourse(courseUserModel));
     }
